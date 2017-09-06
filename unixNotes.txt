@@ -31,6 +31,7 @@ functionality. the Head and Tail will give you the first or last 10 lines of a f
   "head -n 4 | tail -n 1"
 - with something like <history | grep "cp -r"> will find, from history's output anything that contains the
   string "cp -r"
+- 
 
 --Anatomy of a Unix command--
 mv -f notes.txt copynotes.txt

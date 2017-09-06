@@ -36,5 +36,11 @@
 - git push -u <remote git addres alieas> <name of master branch> : push changes up to <name of master> where
   using the alias of the remote git address you've added. Note, after you push once from a local repo to a 
   remote repo, they remember each other and you can afterwards do just "git push"
--   
-
+- git clone <url> <optional name>: make a git repo that is identical to the repo the url is pointing to.
+- git diff <head -n 4> : shows differences in a file, for example before we want to commit something. the optional
+  head subcommand gives you just the first N changes
+- git df : 
+- git dfs : 
+- git rm : makes a file (or dir with -r) untracked in the repo. Note that this also deletes the file when 
+  commited. Also note that even for deletions such as this we need to push to staging and then commit like 
+  any other change.
