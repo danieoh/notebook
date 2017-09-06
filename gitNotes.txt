@@ -32,5 +32,9 @@
 - git ll : this shows you the changes, but without the details w/o lines of code. Note that the "ll" argument 
   is an alias for a longer argument. It can be found somewhere in a config file.  
 - git reset <file> : this unstages a file or something that you've staged for commit.
-- 
+- git remote [add <remote git address alias>] : make a name and associate it to a URL for the the gitHub
+- git push -u <remote git addres alieas> <name of master branch> : push changes up to <name of master> where
+  using the alias of the remote git address you've added. Note, after you push once from a local repo to a 
+  remote repo, they remember each other and you can afterwards do just "git push"
+-   
 
