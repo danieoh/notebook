@@ -1,0 +1,33 @@
+--Basics--
+- Git code revisions are "pointing" to it's original version (before the revision/change).
+- For example, in the below, assume "A1" is the original commit and subsequent commits are 
+  revisions that stem from the previous code.
+  F1 <- F1 <- F1 <- F1 <- ...
+  A1 <- B2 <- C3 <- D4 <- ...
+
+--Git Areas--
+- Staging Area can also be known as the "Index"
+- There is another area known as the History (of the Master Branch)
+- Then there is the "Working Tree" which is the directory where you work in.
+- so a typical flow may look like
+  Changes in Working Tree > Pushed to Staging or Index > Committed to the History of the Master Branch
+
+--Commands--
+- git init : initilizes git, turns the current directory into a git Working Tree. Addes the .git hidden
+  folder. Note you can easily remove the git hidden folder from a given Working Tree whenever you like 
+  (this blows away the staging area and the entire .git repo)
+- git status : shows things in the Working Tree which are in or out of Staging, and other statuses.
+- git add <file> : this will stage a file from your Working Tree to your Staging to be picked up for the
+  next commit. Note that you cannot git add an empty directory or directory structure to Staging. (if you
+  need to for whatever reason, you can add a small hidden .gitkeep file to fool git to catch your 
+  change.
+- git commit -m 'I am chaging something' : this will commit everything that you've staged thus far to
+  the master branch by default. -m <argv> is the comment for the change (I assume).
+- git log : shows you details on commits to the History area, such as the Hash ID of the commit,
+  the author and the timestamps, etc.
+- git la : this shows you the actual changes of the History, such as lines of code changes, note that the 
+  "la" argument is a user defined alias for a longer argument. 
+- git ll : this shows you the changes, but without the details w/o lines of code. Note that the "ll" argument 
+  is an alias for a longer argument. It can be found somewhere in a config file.  
+
+
