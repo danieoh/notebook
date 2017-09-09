@@ -36,3 +36,7 @@ functionality. the Head and Tail will give you the first or last 10 lines of a f
 --Anatomy of a Unix command--
 mv -f notes.txt copynotes.txt
 command -flag arg1 arg2
+
+--CR Unix Command--
+- rbt post : this is an aliases command which posts your commit as a CR and returns the url of the
+  cr.

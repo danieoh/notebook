@@ -1,0 +1,82 @@
+==Architecture==
+- For comparison, C's compiler is specific to the OS. And sometimes if the OS that you originally dev'ed code
+  on, per se, is diff from a new OS, and datatypes are diff (say int is 4 bits stead of 8 bits), 
+  sometimes you need to rewrite your code.
+- Instead, Java has a JVM in the JRE that uses libraries which compiles your bytecode into assembly. Note
+  that bytecode is unreadable to the OS, it is compiled into Assembly(?) 
+- 
+
+==Basics==
+- INTEGER TYPES
+  - byte   1B
+  - short  2B
+  - int    4B
+  - long   8B
+- REAL TYPES
+  - float  4B
+  - double 8B
+- char     2B
+- bool     ?
+- OPERATING ON STUFF
+- Java is a type-safe language (strongly typed?)
+- Variable: Memory location allocated to store a value.
+- Note identifiers can only start with $, _, or A-z.
+  - A lot of the time people start identifiers with _ for private variables.
+- character 2+ (after the first) can be any letter or number.
+- There are reserved keywords that you cant use as an identifier. (e.g. main)
+- Case matters
+  - For Classes, convention dictates that they start with upper case (e.g. public class 
+    ClassRoom)
+  - Variables should start with lower case (e.g. int sizeOfClass).
+- Integer division will truncate the remaining floating point. (e.g. 239/10 = 23 instead of 24)
+- implicitly casting generally works on compilation for a smaller datatype to a larger one (e.g.
+  double = int works, but int = double, doesn't. int is 4B, double is 8b.)
+- you can eplicitly cast more precise datatypes to less precise datatypes by casting, but it 
+  should be done carefully (e.g. int i = (int) 10.0000001)
+
+==Conditionals==
+- In validating Strings you can do a String.equals("ComparisonString").
+- Note that you can't do the Switch statement with float double (!) b/c of the precision.
+- 
+
+==Precision==
+- Boolean math is not really ever right (precision is kind of infinite) so how does 1 = 1?
+- The way this is accounted for is using tolerances of epsilon. But epsilon can vary depending on 
+  what kind of data type you are using and at what kind of precision you are looking for in your 
+  conditional check. So the range of where 5 is 5 is between (5 - epsilon, 5 + epsilon). And the
+  full form of an if condition is "if ((5-value) < epsilon)" instead of "if (5==value)"
+
+==Misc==
+- System.out.printf stands for "print format" and you can do things like format the number of decimals in
+  a float or double, etc. It's quite useful for logs.
+- Java is short circuited. For example, the moment it finds something won't work, it won't do the other
+  operations or code you have in place. For example ( (A == B) && C == B ), it won't check if C == B if 
+  A doesn't == B.
+- 
+		/*
+		 ** this code is commented for learnings. Doing a 
+		    recursive try .. catch is not ideal for multiple
+		    reasons, such as if a person does a bunch of invalid
+		    inputs, they can cause a stack overflow. And 
+		    it is the convention for the try ... catch to be
+		    used for exception handling instead of this 
+		    input forcing. (it is not good practice to include this
+		    comment, but due to certain issues with nano, doing
+		    this. This is discused with TA.)
+
+		//(local?) var to hold Scanner input
+		double tryDouble;
+
+		//exception handling for invalid inputs
+		try {
+			tryDouble = usInput.nextDouble();
+			return tryDouble;
+		}
+		catch (InputMismatchException e) {
+			usInput.next(); //to consume current invalid input avoid endless loop
+			System.out.println("Only numericals accepted");
+			return tryInput(); //recursing to the function to prompt for input again on invalid input
+		}
+		//need another catch for numerical truncation on overflow
+*/
+

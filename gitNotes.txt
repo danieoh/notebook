@@ -38,9 +38,25 @@
   remote repo, they remember each other and you can afterwards do just "git push"
 - git clone <url> <optional name>: make a git repo that is identical to the repo the url is pointing to.
 - git diff <head -n 4> : shows differences in a file, for example before we want to commit something. the optional
-  head subcommand gives you just the first N changes
-- git df : 
-- git dfs : 
+  head subcommand gives you just the first N changes. note that this only gives you changes in the working
+  tree.
+- git df : this gives you the changes in both staging and history (I think)
+- git dfs : this gives you the changes in just staging (I think)
 - git rm : makes a file (or dir with -r) untracked in the repo. Note that this also deletes the file when 
   commited. Also note that even for deletions such as this we need to push to staging and then commit like 
   any other change.
+- git reset --soft HEAD^ : rollback the last commit. the --soft portion means it doesn't just lose the change
+  it will stage the reset to queue it for staging.
+- git stash : stash "remembers" a stack of changes which can later be Pop'ed off back into the working
+  tree. the Stash will by default add to the stack whatever is changed in your current working directory.
+  Note that you can specify a single specific file to stash on the stack instead of everything that is
+  changed.
+- git commit --amend : what this does is replaces the last commit. If you know for sure your code is
+  broken on the last commit, this might be useful. Also useful when you are ammending a submitted
+  Code Review post. For all practical purposes, you can revert a revision (an ammendment), not
+  exactly a use case. BUT there is hairy way to do it using something called reflog.
+- git commit --amend -no-edit : does ammend without prompting for the commit message you added from
+  the last commit.
+- (not git but useful) rbt post -u : posts the last commit to Code Review. the dash -u matches the
+  id of the CR you want to post to.
+
