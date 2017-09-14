@@ -59,4 +59,7 @@
   the last commit.
 - (not git but useful) rbt post -u : posts the last commit to Code Review. the dash -u matches the
   id of the CR you want to post to.
-
+- .gitignore will not kick in until it is tracked (staged) at least. If you add something to .gitignore
+  when that something is already in the remote repository, then it won't remove that from remote,
+  it will simply stop looking for updates for the thing (and anyone who pulls down your remote) will
+  also have the same affect. That something will be frozen in time.

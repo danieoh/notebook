@@ -46,13 +46,48 @@
   conditional check. So the range of where 5 is 5 is between (5 - epsilon, 5 + epsilon). And the
   full form of an if condition is "if ((5-value) < epsilon)" instead of "if (5==value)"
 
+==Objects==
+- an Object is a copy of a class that is instantiated in memory with certain properties.
+- a constructor is a special method which instantiates an object. 
+- you can have noargs constructor which constructs an object without any arguments. 
+- when you instantiate an object from another object, note that the new object is using the address (or
+  reference) from the original object. This can cause confusion. If you are not using the "new" keyword
+  you are creating a reference instead of an entirely new object.
+- Static is used when you don't have to instantiate an object to have an effect. For example with the 
+  Math library, such as Math.abs(), we don't need an object to do the absolute operation, we can just
+  call the method. 
+- 
+
+==Loops==
+- note that your loop variables are local only to your loop, they can't be used anywhere else (unless
+  you actually declare your loop variable outside of the loop. for example in for (int i; ...) I can't
+  use "i" anywhere other than within the {} of your loop.
+- other than the "normal" flow of your loop, you can use BREAK and CONTINUE. BREAK will take you out
+  of your loop altogether. CONTINUE will skip back to the top of the loop (ignores the remainder of
+  the loop block as of the CONTINUE.)
+- "for each loop" : it has to run through every element. it can never go out of bounds. It can not 
+  scroll and jump around and generally loses the concept of an index. it only does the curly
+  brace code literally for each element.
+	for (int number : numbers){
+		System.out.println(number)
+	}
+
+==Exceptions==
+- FileWriter() object: this is a convenience object for writing streams of character to a file.
+- BufferedWriter() object: 
+
+
 ==Misc==
+- Documentation comment abstracts things and tells people what is happening. An Implementation comment
+  is used to explain why certain things are implemented as they are (for example: documentation - this
+  gets a user's input. implementation - I chose this data type because I want a lot of precision.)
+- Java docs: java 8 docs is online documentation.
 - System.out.printf stands for "print format" and you can do things like format the number of decimals in
   a float or double, etc. It's quite useful for logs.
 - Java is short circuited. For example, the moment it finds something won't work, it won't do the other
   operations or code you have in place. For example ( (A == B) && C == B ), it won't check if C == B if 
   A doesn't == B.
-- 
+- Try catch has a convention to be used: see below
 		/*
 		 ** this code is commented for learnings. Doing a 
 		    recursive try .. catch is not ideal for multiple
@@ -80,3 +115,5 @@
 		//need another catch for numerical truncation on overflow
 */
 
+== More Advanced ==
+- you can have something have two methods of the same name: https://beginnersbook.com/2013/05/method-overloading/
