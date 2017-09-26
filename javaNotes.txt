@@ -1,3 +1,16 @@
+==Array Lists==
+- a resizable array for all practical purposes. It's part of collections. the .add method will add to the end of
+  a list, you can add to a specific index as well.
+- Capacity: initially starts at 10 and resizes when full. Though in the constructor, you can specify a larger
+  size. e.g. new ArrayList<Integer>(500); note that primitives can't be ArrayLists-- BUT wrapper classes like
+  big I Integer can.
+- An array's objects are sequential/contiguous in terms of memory location, but ArrayList's objects are anywhere.
+  It's a little like C arrays vs. C linked lists (specifically in terms of memory location).
+- Arrays can be more performant in certain cases: such as if you know the amount of elements, it can be faster
+  with primitives-- also the contiguous memory nature of it does make things a bit faster.
+- You can also construct it from another List or Array to "seed it." Such as new ArrayList<Array|ArrayList>;
+- 
+
 ==Architecture==
 - For comparison, C's compiler is specific to the OS. And sometimes if the OS that you originally dev'ed code
   on, per se, is diff from a new OS, and datatypes are diff (say int is 4 bits stead of 8 bits), 
@@ -72,6 +85,15 @@
 		System.out.println(number)
 	}
 
+==Arrays==
+- the array object in Java has a number of nice functions: .binarySearch which will return the
+  index of a given element in a sorted array. also .equals which returns a boolean if arg[0]
+  and arg[1] are the same. this is different from ==. == checks the reference (if they are
+  the same block of memory.) .equals actually looks at the values themselves. note order
+  matters fro .equals. .deepEquals is the same as equals, but will work for an array of
+  arrays. also .toString will give you the array as a String delimited by commas.
+  
+
 ==Exceptions==
 - FileWriter() object: this is a convenience object for writing streams of character to a file.
 - BufferedWriter() object: 
@@ -87,6 +109,9 @@
 - Java is short circuited. For example, the moment it finds something won't work, it won't do the other
   operations or code you have in place. For example ( (A == B) && C == B ), it won't check if C == B if 
   A doesn't == B.
+- the "String" pool is a pool of memory that java does funny stuff with. When you create a String literal, 
+  java will check if there is an object in the String pool which is of equivalent value. So in other words
+  you'll end up with two Strings pointing to the same value without knowing it.
 - Try catch has a convention to be used: see below
 		/*
 		 ** this code is commented for learnings. Doing a 
@@ -117,3 +142,23 @@
 
 == More Advanced ==
 - you can have something have two methods of the same name: https://beginnersbook.com/2013/05/method-overloading/
+- the String .compareTo or .compareToIgnoreCase (gives you a lexographical compare of the two strings -1, 0, 1
+  based on s1<s2 = s1>s2)
+- Substring: creates a new string as part of the another String. String.substring(from_index, to_index)
+- String buffer and String builder should be used when you are trying to make strings mutable (such as 
+  when you are doing some looping concatenation, for example.) But note you want to use String buffer over
+  builder because it's more parallel processing friendly.
+
+== REGEX ==
+String s = "I like cheese"
+USING THE EXAMPLE: s.replace("[cheese]","dumpling!")
+- [abc] : matches a || b || c 
+- [^abc] : does not start with 
+- [a-zA-Z] : match any two characters between a-Z
+- [0-9] || \d : match any digit
+- [0-9] || \D : match any non digit
+- \s : match any whitespace
+- \S : match any non white space
+- \w : match word character
+- \W : match any non word character
+- you can do String.split("\\s") in order to split on any whitespace
