@@ -1,0 +1,36 @@
+
+- Gray Box Testing:
+-
+
+- One practice for a constructor: do not make it do to much, like, do you need to do a service call just to
+  instantiate an object.
+
+- Testing will show you when something is modular or not. For example, like when you are trying to test a toilet:
+  it should not be so heavily integrated into a house (or designed as such) that you can't test it in your garage.
+
+- Class Partitioning: Values like 0.00 to 100.00 to 1000.00, etc.
+
+- Boundar Value: Values like 1.00 to 99.00 within a class.
+
+- Integration Testing: When you remove the mocks and run the exact same tests integrating the pieces together
+  integrated.
+
+-
+
+
+Given: starting condition
+When: some action occurred
+Then: result
+
+Note: is paymentId == -1 inclusive of both no payment at all or invalid existing payment.
+
+1. Given that a customer is signed in and has a valid shipping address, when payment is not valid, then
+   direct the customer to the payment setup
+
+2. Given that a customer is signed in and has a valid shipping address, when payment is valid, then check
+   for billing address.
+
+3. Given that payment suc
+
+
+Balance Transfer from one account to another.

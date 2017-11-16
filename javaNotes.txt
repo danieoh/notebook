@@ -69,7 +69,45 @@
 - Static is used when you don't have to instantiate an object to have an effect. For example with the 
   Math library, such as Math.abs(), we don't need an object to do the absolute operation, we can just
   call the method. 
+- you can use the "this" keyword as a self-referencing "object". It refers to the current object. For
+  example, in the below, we are assigning the user-given parameter to the current object's public int
+  class level variable.
+
+  public int height;
+  public Rectangle(int height) {
+  this.height = height;
+  } 
 - 
+
+Inheritance
+- When using inheritance "extends", one can use "super()" which calls the no arg constructor. Though, note,
+one can override by feeding it parameters.
+- Inherits public and protected.
+- You can declare a field in your subclass with the the same name and type as your super. (this is called hiding)
+- Decalre additional methods and fields in your sub class.
+- You do not have to override methods and just get from super class.
+- You can override by using the same method signature.
+- The super() constructor must be declared at the top (just like the regular constructor).
+- yOu use the @Override annotation when overriding a Super's method in the Sub class.
+- Even while overriding, we can recall the same methods: such as make a speedUp() but inside call a 
+  super.speedUp().
+- You can disallow overriding in the super class by making things final. For example if I have a super
+  method pee() in animal, but want all subclasses of animal to always pee the same way, I can make
+  it final pee(), and then no one can @Override pee().
+- You can make a Class final so no one can override anything. This is useful for bottoming out an inheritance
+  chain, say if things have gotten so deep that it would be dumb to continue.
+- You can open the access modifier of something in the super class, but more, not less: For example-- protected
+  in Super can be made public in Sub, but not private in Sub.
+- If you have a subclass that both extends and implements a super and an interface, there is possibility for
+  things to get confused: such as @Override won't know which of the two its overriding if there are the two
+  of the same method.
+- Multi level is single line deep inheritance, each super has one sub. Heirarchal is like a tree, where a 
+  single super extends multiple sub. Multiple inheritance is where one sub inherits multiple supers.
+- As a subclass, I can always call my super class's methods, even if they are protected and I'm calling 
+  from another package, per se. BUT another class that doesn't inherit will still not be able to call 
+  the protected method b/c it does not follow the aforementioned inheritance rule.
+
+
 
 ==Loops==
 - note that your loop variables are local only to your loop, they can't be used anywhere else (unless
@@ -98,7 +136,13 @@
 - FileWriter() object: this is a convenience object for writing streams of character to a file.
 - BufferedWriter() object: 
 
-
+==Objects==
+- Constructor method should not have a return type (e.g. int or void).
+- you can overload a Constructor method by having, for example, one constructor which takes args and
+  another which takes none. For example Rectangle() might instantiate a rectangle object with 0 for everything
+  but Rectangle(3,4,8,10) might make a rectangle with four coordinates.
+- Your constructor should be named the same as your class.
+- 
 ==Misc==
 - Documentation comment abstracts things and tells people what is happening. An Implementation comment
   is used to explain why certain things are implemented as they are (for example: documentation - this
